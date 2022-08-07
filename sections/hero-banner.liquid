@@ -1,0 +1,170 @@
+<!-- <section>
+  <img src="{{ section.settings.image | img_url: 'medium' }}" alt="">
+</section> -->
+
+{%- liquid
+  assign bg_class = ''
+
+  unless section.settings.bg_style == 'none'
+    if section.settings.bg_style == 'image' and section.settings.image != blank
+      assign bg_class = ' banner--bg banner--bg-image'
+    else
+      assign bg_class = ' banner--bg banner--bg-color'
+    endif
+  endunless
+
+  if template.name == 'cart'
+    assign title = 'cart.general.your_cart_title' | t
+  elsif template.name == 'list-collections'
+    assign title = 'collections.collection_list.title' | t
+  elsif template.name == 'search'
+    assign title = 'general.search.title' | t
+  else
+    assign title = [template.name].title
+  endif
+-%}
+
+{%- if settings.hero_overlap > 0 and section.settings.bg_style == 'none' -%}
+  {%- style -%}
+    #shopify-section-{{ section.id }} + .shopify-section .section-content { margin-top: 0; }
+    #shopify-section-{{ section.id }} + .shopify-section .spaced-section .section-content { padding: 0; }
+  {%- endstyle -%}
+{%- endif -%}
+
+<div class="custom-banner-leo banner{{ bg_class }}{% unless settings.show_breadcrumbs %} banner--no-breadcrumbs{% endunless %}">
+  {%- if section.settings.bg_style == 'image' and section.settings.image != blank -%}
+    {% render 'hero-banner-image', img: section.settings.image %}
+    <span class="banner__overlay"></span>
+  {%- endif -%}
+
+  <div class="banner__text container reading-width" data-cc-animate>
+    {%- if template.name == 'blog' and current_tags -%}
+      <h1>
+        <a href="{{ blog.url }}">{{ blog.title | link_to: blog.url }}</a>
+        {% for tag in current_tags %} / {{ tag }}{% endfor %}
+      </h1>
+    {%- else -%}
+      <h1 class="clicker-font clicker-font-size-4">{{ title }}</h1>
+      <h1 class="playfair_display_n4 margin-bottom-leo-0">{{ section.settings.main-title }}</h1>
+      <h2 class="clicker-font clicker-font-size-4 margin-bottom-leo-30">{{ section.settings.sub-title }}</h2>
+      <!-- <input class="button-pink" type="button" value="Shop Our Creams"> -->
+      <input class="input-with-button__button button button-pink-width-leo" type="button" value="Shop Our Creams">
+    {%- endif -%}
+  </div>
+
+  {%- if settings.show_breadcrumbs -%}
+    {%- liquid
+      assign show_rss_link = false
+      if template.name == 'blog'
+        assign show_rss_link = true
+      endif
+    -%}
+    {% render 'breadcrumbs', show_rss_link: show_rss_link %}
+  {%- endif -%}
+</div>
+
+{% schema %}
+  {
+    "name": "Hero banner",
+    "class": "section-banner banner-candidate",
+    "settings": [
+      {
+        "type": "text",
+        "id": "main-title",
+        "label": "Heading",
+        "default": "We care about Mums and Babies"
+      },
+      {
+        "type": "text",
+        "id": "sub-title",
+        "label": "Heading",
+        "default": "and your little one"
+      },
+      {
+        "type": "paragraph",
+        "content": "The hero banner contains the main page title (h1). If you choose to hide it, we advise you to provide an h1 title in another section (image banner or background video) for SEO purposes."
+      },
+      {
+        "type": "header",
+        "content": "Style"
+      },
+      {
+        "type": "select",
+        "id": "bg_style",
+        "label": "Background style",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "color",
+            "label": "Color"
+          },
+          {
+            "value": "image",
+            "label": "Image"
+          }
+        ],
+        "default": "color"
+      },
+      {
+        "type": "paragraph",
+        "content": "Height and color settings can be found in Theme Settings > Hero Banners."
+      },
+      {
+        "type": "header",
+        "content": "Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image",
+        "info": "Shown on all pages using this template. For best results, use an image with 16:9 aspect ratio and width of 3200px."
+      },
+      {
+        "type": "select",
+        "id": "image_align",
+        "label": "Image alignment",
+        "options": [
+          {
+            "value": "top",
+            "label": "Top"
+          },
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          },
+          {
+            "value": "bottom",
+            "label": "Bottom"
+          }
+        ],
+        "default": "center"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Hero banner",
+        "category": "Hero banner"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+  .button-pink {
+    background-color: #f3ab9d;
+    border-color: #f3ab9d;
+    color: white;
+    padding: 16px;
+  }
+{% endstylesheet %}

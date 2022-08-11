@@ -297,10 +297,55 @@
             "icon": "svg-beer",
             "url": ""
           }
+        },
+        "d0d88e6e-81f0-4066-afe4-6964bcac5575": {
+          "type": "logo",
+          "settings": {
+            "title": "Logo \/ feature",
+            "icon": "svg-bookmark",
+            "url": ""
+          }
+        },
+        "1e2d31b2-3911-4b0e-b1df-a519997b5157": {
+          "type": "logo",
+          "settings": {
+            "title": "Logo \/ feature",
+            "icon": "svg-heart-mobile",
+            "url": ""
+          }
+        },
+        "700a802b-c94a-4401-8d97-cd186738efda": {
+          "type": "logo",
+          "settings": {
+            "title": "Logo \/ feature",
+            "icon": "svg-package",
+            "url": ""
+          }
+        },
+        "cad43fec-3638-4837-84d4-af41756b1cc5": {
+          "type": "logo",
+          "settings": {
+            "title": "Logo \/ feature",
+            "icon": "svg-map-location",
+            "url": ""
+          }
+        },
+        "861c4ab3-dc80-44a9-8d5a-9feb6840114e": {
+          "type": "logo",
+          "settings": {
+            "title": "Logo \/ feature",
+            "icon": "svg-world",
+            "url": ""
+          }
         }
       },
       "block_order": [
-        "16602590431f4673f0-0"
+        "16602590431f4673f0-0",
+        "d0d88e6e-81f0-4066-afe4-6964bcac5575",
+        "1e2d31b2-3911-4b0e-b1df-a519997b5157",
+        "700a802b-c94a-4401-8d97-cd186738efda",
+        "cad43fec-3638-4837-84d4-af41756b1cc5",
+        "861c4ab3-dc80-44a9-8d5a-9feb6840114e"
       ],
       "settings": {
         "heading": "",

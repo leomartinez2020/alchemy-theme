@@ -103,6 +103,7 @@
       "type": "featured-collection",
       "settings": {
         "title": "Our Most Popular Products",
+        "sub_title": "Subtitle",
         "collection": "soaps",
         "grid_show_vendor": false,
         "products_per_row_int": 3,
@@ -170,11 +171,13 @@
       "blocks": {
         "slide-0": {
           "type": "image",
-          "settings": {}
+          "settings": {
+          }
         },
         "slide-1": {
           "type": "image",
-          "settings": {}
+          "settings": {
+          }
         }
       },
       "block_order": [
@@ -241,6 +244,7 @@
         "image": "shopify:\/\/shop_images\/woman-holding-baby-while-sitting-on-fur-bean-bag-698878.jpg",
         "layout": "left",
         "heading": "We Make Our Pure Products Just For Mothers",
+        "sub_text": "Subtext",
         "text": "<p>Feel the love with our natural products that are wholesome for you and your little one. Feel the love with our natural products that are wholesome for you and your little one. Feel the love with our natural.<\/p>",
         "button_text": "Learn More",
         "button_link": "",
@@ -261,6 +265,7 @@
         "image": "shopify:\/\/shop_images\/PHOTO-2019-12-03-17-20-47_3.jpg",
         "layout": "right",
         "heading": "Our Ingredients Are Amazing",
+        "sub_text": "Subtext",
         "text": "<p>Pair text with an image to give focus to a selected product, collection or blog post. Add details on availability, style or even provide a review.<\/p>",
         "button_text": "Learn More",
         "button_link": "",
@@ -278,7 +283,33 @@
       "type": "collection-list",
       "settings": {
         "title": "Products by Category",
+        "sub_title": "Subtitle",
         "collections_per_row_int": 4
+      }
+    },
+    "1660259043103c6c0e": {
+      "type": "logo-list",
+      "blocks": {
+        "16602590431f4673f0-0": {
+          "type": "logo",
+          "settings": {
+            "title": "Logo \/ feature",
+            "icon": "svg-beer",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "16602590431f4673f0-0"
+      ],
+      "settings": {
+        "heading": "",
+        "icon_size": 50,
+        "enlarge_text": false,
+        "color_scheme": "scheme-1",
+        "color_bg": "",
+        "color_heading": "",
+        "color_text": ""
       }
     },
     "video": {
@@ -334,6 +365,7 @@
     "image-with-text",
     "165796616410cc1414",
     "165798160237df1af9",
+    "1660259043103c6c0e",
     "video",
     "featured-blog"
   ]

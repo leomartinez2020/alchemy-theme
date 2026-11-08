@@ -20,7 +20,7 @@
   elsif template.name == 'search'
     assign title = 'general.search.title' | t
   else
-    assign title = [template.name].title
+    assign title = self[template.name].title
   endif
 -%}
 
@@ -168,3 +168,13 @@
     padding: 16px;
   }
 {% endstylesheet %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "    assign title = [template.name].title"
+  to: "    assign title = self[template.name].title"
+  position: 676..720
+{% endcomment %}
